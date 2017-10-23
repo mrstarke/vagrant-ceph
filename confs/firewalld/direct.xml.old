@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<direct>
+  <rule priority="0" table="filter" ipv="ipv4" chain="INPUT">--in-interface enp0s8 --destination 224.0.0.18 --protocol vrrp -j ACCEPT</rule>
+</direct>
