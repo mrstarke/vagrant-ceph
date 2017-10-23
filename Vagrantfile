@@ -93,7 +93,7 @@ Vagrant.configure("2") do |config|
       cp /ceph-ansible/ceph-ansible/hosts /etc/ansible/hosts
       ansible-playbook /ceph-ansible/ceph-ansible/site.yml
       yum install s3cmd -y
-      install -m 644 -o root -g root /ceph-ansible/confs/s3cmd /root/.s3cmd
+      install -m 644 -o root -g root /ceph-ansible/confs/s3cmd /root/.s3cfg
       echo Execute o comando abaixo, copie as chaves e altere o arquivo .s3cmd
       echo radosgw-admin user create --uid=marcio --display-name=marcio
     SHELL
