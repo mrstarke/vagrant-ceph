@@ -46,12 +46,14 @@ Vagrant.configure("2") do |config|
     cephnode2.vm.provider "virtualbox" do |vb|
       vb.memory = "1024"
       #vb.customize ['storagectl', :id, '--name', 'SATA Controller', '--add', 'sata', '--portcount', 4]
-      vb.customize ['createhd', '--filename', 'osds/osd4.vdi', '--variant', 'Standard', '--size', 10 * 1024]
-      vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd4.vdi']
-      vb.customize ['createhd', '--filename', 'osds/osd5.vdi', '--variant', 'Standard', '--size', 10 * 1024]
-      vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 3, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd5.vdi']
-      vb.customize ['createhd', '--filename', 'osds/osd6.vdi', '--variant', 'Standard', '--size', 10 * 1024]
-      vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 4, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd6.vdi']
+      unless File.exist?('osds/osd4.vdi')
+        vb.customize ['createhd', '--filename', 'osds/osd4.vdi', '--variant', 'Standard', '--size', 10 * 1024]
+        vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd4.vdi']
+        vb.customize ['createhd', '--filename', 'osds/osd5.vdi', '--variant', 'Standard', '--size', 10 * 1024]
+        vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 3, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd5.vdi']
+        vb.customize ['createhd', '--filename', 'osds/osd6.vdi', '--variant', 'Standard', '--size', 10 * 1024]
+        vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 4, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd6.vdi']
+      end
     end
   end
   
@@ -62,12 +64,14 @@ Vagrant.configure("2") do |config|
     cephnode3.vm.provider "virtualbox" do |vb|
       vb.memory = "1024"
       #vb.customize ['storagectl', :id, '--name', 'SATA Controller', '--add', 'sata', '--portcount', 4]
-      vb.customize ['createhd', '--filename', 'osds/osd7.vdi', '--variant', 'Standard', '--size', 10 * 1024]
-      vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd7.vdi']
-      vb.customize ['createhd', '--filename', 'osds/osd8.vdi', '--variant', 'Standard', '--size', 10 * 1024]
-      vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 3, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd8.vdi']
-      vb.customize ['createhd', '--filename', 'osds/osd9.vdi', '--variant', 'Standard', '--size', 10 * 1024]
-      vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 4, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd9.vdi']
+      unless File.exist?('osds/osd7.vdi')
+        vb.customize ['createhd', '--filename', 'osds/osd7.vdi', '--variant', 'Standard', '--size', 10 * 1024]
+        vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd7.vdi']
+        vb.customize ['createhd', '--filename', 'osds/osd8.vdi', '--variant', 'Standard', '--size', 10 * 1024]
+        vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 3, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd8.vdi']
+        vb.customize ['createhd', '--filename', 'osds/osd9.vdi', '--variant', 'Standard', '--size', 10 * 1024]
+        vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 4, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd9.vdi']
+      end
     end
   end
   
@@ -78,12 +82,14 @@ Vagrant.configure("2") do |config|
     cephnode1.vm.provider "virtualbox" do |vb|
       vb.memory = "1024"
       #vb.customize ['storagectl', :id, '--name', 'SATA Controller', '--add', 'sata', '--portcount', 4]
-      vb.customize ['createhd', '--filename', 'osds/osd1.vdi', '--variant', 'Standard', '--size', 10 * 1024]
-      vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd1.vdi']
-      vb.customize ['createhd', '--filename', 'osds/osd2.vdi', '--variant', 'Standard', '--size', 10 * 1024]
-      vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 3, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd2.vdi']
-      vb.customize ['createhd', '--filename', 'osds/osd3.vdi', '--variant', 'Standard', '--size', 10 * 1024]
-      vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 4, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd3.vdi']
+      unless File.exist?('osds/osd1.vdi')
+        vb.customize ['createhd', '--filename', 'osds/osd1.vdi', '--variant', 'Standard', '--size', 10 * 1024]
+        vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd1.vdi']
+        vb.customize ['createhd', '--filename', 'osds/osd2.vdi', '--variant', 'Standard', '--size', 10 * 1024]
+        vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 3, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd2.vdi']
+        vb.customize ['createhd', '--filename', 'osds/osd3.vdi', '--variant', 'Standard', '--size', 10 * 1024]
+        vb.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 4, '--device', 0, '--type', 'hdd', '--medium', 'osds/osd3.vdi']
+      end
     end
     #cephnode1.vm.provision "ansible" do |ansible|
     #  ansible.playbook = "site.yml"
